@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "378001762355",
+    "firebase_url": "https://medhisine.firebaseio.com",
+    "project_id": "medhisine",
+    "storage_bucket": "medhisine.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:378001762355:android:303253b9dcaa71a1",
+        "android_client_info": {
+          "package_name": "com.example.rishabh.medhisine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "378001762355-ntd97op86j9be7tnac3grf2mtf8j0kik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMuLwW0NED6V-FqvtYo2QV0gTPZwh-YCQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
