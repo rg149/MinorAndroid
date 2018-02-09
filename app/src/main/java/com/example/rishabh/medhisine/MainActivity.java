@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         String login_pass = lpass.getText().toString();
 
         new login_check(this).execute(login_phone, login_pass);
+        new extract_userinfo(this).execute(login_phone);
+
 
     }
 }

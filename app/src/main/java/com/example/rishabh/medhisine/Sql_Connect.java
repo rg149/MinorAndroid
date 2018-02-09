@@ -1,7 +1,11 @@
 package com.example.rishabh.medhisine;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SearchRecentSuggestionsProvider;
 import android.nfc.Tag;
 import android.os.AsyncTask;
@@ -99,7 +103,6 @@ import java.net.URLEncoder;
 //                    Toast t= Toast.makeText(context,"Connection Error!",Toast.LENGTH_LONG);
 //                    t.show();
 //                }
-
 //                if(query_result.equals("FAILURE"))
 //                {
 //                    Toast t= Toast.makeText(context,"Query Failure!",Toast.LENGTH_LONG);
@@ -111,15 +114,19 @@ import java.net.URLEncoder;
                     Toast t = Toast.makeText(context,"User Already Exists!",Toast.LENGTH_LONG);
                     t.show();
                 }
-                if(exist.equals("NOTEXISTS"))
-                {
-                    Toast t = Toast.makeText(context,"User Registered Succesfully!",Toast.LENGTH_LONG);
-                    t.show();
+                if(exist.equals("NOTEXISTS")) {
+                    AlertDialog.Builder d = new AlertDialog.Builder(context);
+                    d.setMessage("User Registered Successfully!");
+                    d.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent i1 = new Intent(context, MainActivity.class);
+                            context.startActivity(i1);
+                        }
+                    });
+                    d.show();
                 }
-                else {
-                    Toast t2 = Toast.makeText(context, "Something Went Wrong! Try Agian..", Toast.LENGTH_LONG);
-                    t2.show();
-                }
+
             }
             catch (JSONException e)
             {

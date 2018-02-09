@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -20,6 +21,7 @@ import java.net.URLEncoder;
 public class login_check extends AsyncTask<String, Void, String>{
 
     private Context context;
+    String phone;
 
     public ProgressDialog progressdialog;
 
@@ -36,7 +38,7 @@ public class login_check extends AsyncTask<String, Void, String>{
     }
 
 
-    protected String doInBackground(String... arg0) {
+    public String doInBackground(String... arg0) {
 
         String phone=arg0[0];
         String pass = arg0[1];
@@ -44,6 +46,7 @@ public class login_check extends AsyncTask<String, Void, String>{
         String result;
         String data="";
         BufferedReader bufferedReader;
+
 
         try{
                 data += "?Phone=" + URLEncoder.encode(phone,"UTF-8");
@@ -76,7 +79,7 @@ public class login_check extends AsyncTask<String, Void, String>{
 
                 if(valid.equals("Invalid"))
                 {
-                    Toast t = Toast.makeText(context, "Invalid Username and Password",Toast.LENGTH_LONG);
+                    Toast t = Toast.makeText(context, "Invalid Username or Password",Toast.LENGTH_LONG);
                     t.show();
                 }
                 if(valid.equals("Valid"))
@@ -84,16 +87,11 @@ public class login_check extends AsyncTask<String, Void, String>{
                     Intent i = new Intent(context, Dashboard.class);
                     context.startActivity(i);
                 }
-                if(valid.equals("Password"))
-                {
-                    Toast t = Toast.makeText(context, "Invalid Password",Toast.LENGTH_LONG);
-                    t.show();
-                }
             }
             catch (JSONException e)
             {
                 e.printStackTrace();
             }
+        }
 
-    }
 }
