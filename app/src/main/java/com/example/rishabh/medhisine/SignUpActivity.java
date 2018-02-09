@@ -76,7 +76,6 @@ public class SignUpActivity extends AppCompatActivity {
             v++;
         }
 
-
         if (passw.equals(conpass)) {
             deletemsgpass();
             v++;
@@ -91,13 +90,9 @@ public class SignUpActivity extends AppCompatActivity {
         }
 
         if (v == 5 || v == 6) {
-
-            //Toast toast = Toast.makeText(this, "User Registered Succesfully!", Toast.LENGTH_LONG);
-            //toast.show();
             new Sql_Connect(this).execute(names, email, passw, phones);
         }
     }
-
 
     public void mailmsg()
     {

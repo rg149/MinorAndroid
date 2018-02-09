@@ -1,5 +1,6 @@
 package com.example.rishabh.medhisine;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.IntegerRes;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class Dashboard extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

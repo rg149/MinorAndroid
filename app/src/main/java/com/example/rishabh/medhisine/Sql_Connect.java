@@ -21,7 +21,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class Sql_Connect extends AsyncTask<String, Void, String> {
+        public class Sql_Connect extends AsyncTask<String, Void, String> {
 
 
     private Context context;
@@ -49,37 +49,29 @@ public class Sql_Connect extends AsyncTask<String, Void, String> {
 
         String link;
         String data = "";
-        String result = "";
+        String result;
         BufferedReader bufferedReader;
 
         try {
-            try {
                 data += "?Name=" + URLEncoder.encode(name, "UTF-8");
                 data += "&EMail=" + URLEncoder.encode(ema, "UTF-8");
                 data += "&Passw=" + URLEncoder.encode(passwd, "UTF-8");
                 data += "&Phone=" + URLEncoder.encode(phone, "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-                //link = "192.168.1.6/sql/localconn.php"+data;
-                link="http://rishabh2.000webhostapp.com/sql.php"+data;
 
-            try {
+                //link = "192.168.1.6/sql/localconn.php"+data;
+                link="http://rishabh2.000webhostapp.com/register.php"+data;
+                //link = "http://enginerds.heliohost.org/localconn.php"+data;
+
                 URL url = new URL(link);
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
                 result = bufferedReader.readLine();
 
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
             return result;
-        } catch (Exception e) {
-            return new String("Exception: " + e.getMessage());
 
+        }
+        catch (Exception e) {
+            return new String("Exception: " + e.getMessage());
         }
     }
 
@@ -88,43 +80,53 @@ public class Sql_Connect extends AsyncTask<String, Void, String> {
         progressbar.cancel();
 
         String jsonstr = result;
+
         if(jsonstr != null)
         {
             try{
                 JSONObject jobj = new JSONObject(jsonstr);
-                String query_result = jobj.getString("query_result");
+
+                //String query_result = jobj.getString("query_result");
                 String exist = jobj.getString("existence");
-                String conne = jobj.getString("conection");
+                //String conne = jobj.getString("conection");
 
-                if(conne == "Connection failed")
-                {
-                    Toast.makeText(context,"Connection Error!",Toast.LENGTH_LONG);
-                }
+                //Log.e("exists", exist);
+                //Log.e("query", query_result);
+                //Log.e("connection", conne);
 
-                if(query_result == "FAILURE")
+//                if(conne == "Connection failed")
+//                {
+//                    Toast t= Toast.makeText(context,"Connection Error!",Toast.LENGTH_LONG);
+//                    t.show();
+//                }
+
+//                if(query_result.equals("FAILURE"))
+//                {
+//                    Toast t= Toast.makeText(context,"Query Failure!",Toast.LENGTH_LONG);
+//                    t.show();
+//
+//                }
+                if(exist.equals("EXISTS"))
                 {
-                    Toast.makeText(context,"Something Went Wrong!",Toast.LENGTH_LONG);
+                    Toast t = Toast.makeText(context,"User Already Exists!",Toast.LENGTH_LONG);
+                    t.show();
                 }
-                if(exist == "EXISTS")
+                if(exist.equals("NOTEXISTS"))
                 {
-                    Toast.makeText(context,"User Already Exists!",Toast.LENGTH_LONG);
+                    Toast t = Toast.makeText(context,"User Registered Succesfully!",Toast.LENGTH_LONG);
+                    t.show();
                 }
-                if(query_result == "SUCCESS" && exist == "NOTEXISTS")
-                {
-                    Toast.makeText(context,"User Registered Succesfully!",Toast.LENGTH_LONG);
+                else {
+                    Toast t2 = Toast.makeText(context, "Something Went Wrong! Try Agian..", Toast.LENGTH_LONG);
+                    t2.show();
                 }
-                else
-                    Toast.makeText(context,"Something Went Wrong!",Toast.LENGTH_LONG);
             }
             catch (JSONException e)
             {
                 e.printStackTrace();
-                Toast.makeText(context,"Something Went Wrong!",Toast.LENGTH_LONG);
+                Toast t3 = Toast.makeText(context,"Something Went Wrong JSON Exception!",Toast.LENGTH_LONG);
+                t3.show();
             }
         }
-        else{
-            Toast.makeText(context, "Something Went Wrong!", Toast.LENGTH_LONG);
-        }
-
     }
 }

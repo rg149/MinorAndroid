@@ -34,15 +34,7 @@ public class MainActivity extends AppCompatActivity {
         String login_phone = lp.getText().toString();
         String login_pass = lpass.getText().toString();
 
-        if (login_phone.equals("123") && login_pass.equals("123"))
-        {
-            Intent i = new Intent(this, Dashboard.class);
-            startActivity(i);
-        }
-        else{
-            Toast toast = Toast.makeText(this, "Invalid User !", Toast.LENGTH_SHORT);
-            toast.show();
-        }
+        new login_check(this).execute(login_phone, login_pass);
 
     }
 }
