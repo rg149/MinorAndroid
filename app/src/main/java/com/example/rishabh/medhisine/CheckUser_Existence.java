@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SearchRecentSuggestionsProvider;
+import android.net.Uri;
 import android.nfc.Tag;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -25,31 +26,28 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-        public class Sql_Connect extends AsyncTask<String, Void, String> {
+public class CheckUser_Existence extends AsyncTask<String, Void, String> {
 
 
     private Context context;
 
     ProgressDialog progressbar;
 
-    public Sql_Connect(Context context) {
-
+    public CheckUser_Existence(Context context) {
         this.context = context;
     }
 
+
     public void onPreExecute() {
         progressbar = new ProgressDialog(context);
-        progressbar.setMessage("Registering User....");
+        progressbar.setMessage("Please wait....");
         progressbar.show();
     }
 
     @Override
     protected String doInBackground(String... arg0) {
 
-        String name = arg0[0];
-        String ema = arg0[1];
-        String passwd = arg0[2];
-        String phone = arg0[3];
+        String phone = arg0[0];
 
         String link;
         String data = "";
@@ -57,14 +55,15 @@ import java.net.URLEncoder;
         BufferedReader bufferedReader;
 
         try {
-                data += "?Name=" + URLEncoder.encode(name, "UTF-8");
-                data += "&EMail=" + URLEncoder.encode(ema, "UTF-8");
-                data += "&Passw=" + URLEncoder.encode(passwd, "UTF-8");
-                data += "&Phone=" + URLEncoder.encode(phone, "UTF-8");
-
+                data += "?Phone=" + URLEncoder.encode(phone, "UTF-8");
+                //data += "&EMail=" + URLEncoder.encode(ema, "UTF-8");
+                //data += "&Passw=" + URLEncoder.encode(passwd, "UTF-8");
+                //data += "&Phone=" + URLEncoder.encode(phone, "UTF-8");
                 //link = "192.168.1.6/sql/localconn.php"+data;
-                link="http://rishabh2.000webhostapp.com/register.php"+data;
+                link="http://rishabh2.000webhostapp.com/CheckUser.php"+data;
                 //link = "http://enginerds.heliohost.org/localconn.php"+data;
+
+                Log.e("Check User link", data);
 
                 URL url = new URL(link);
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -72,7 +71,6 @@ import java.net.URLEncoder;
                 result = bufferedReader.readLine();
 
             return result;
-
         }
         catch (Exception e) {
             return new String("Exception: " + e.getMessage());
@@ -89,42 +87,18 @@ import java.net.URLEncoder;
         {
             try{
                 JSONObject jobj = new JSONObject(jsonstr);
-
-                //String query_result = jobj.getString("query_result");
                 String exist = jobj.getString("existence");
-                //String conne = jobj.getString("conection");
 
-                //Log.e("exists", exist);
-                //Log.e("query", query_result);
-                //Log.e("connection", conne);
-
-//                if(conne == "Connection failed")
-//                {
-//                    Toast t= Toast.makeText(context,"Connection Error!",Toast.LENGTH_LONG);
-//                    t.show();
-//                }
-//                if(query_result.equals("FAILURE"))
-//                {
-//                    Toast t= Toast.makeText(context,"Query Failure!",Toast.LENGTH_LONG);
-//                    t.show();
-//
-//                }
                 if(exist.equals("EXISTS"))
                 {
                     Toast t = Toast.makeText(context,"User Already Exists!",Toast.LENGTH_LONG);
                     t.show();
                 }
                 if(exist.equals("NOTEXISTS")) {
-                    AlertDialog.Builder d = new AlertDialog.Builder(context);
-                    d.setMessage("User Registered Successfully!");
-                    d.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Intent i1 = new Intent(context, MainActivity.class);
-                            context.startActivity(i1);
-                        }
-                    });
-                    d.show();
+
+                    PhoneConfirm pc = new PhoneConfirm(context);
+                    pc.showdialog();
+
                 }
 
             }

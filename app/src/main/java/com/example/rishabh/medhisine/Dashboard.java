@@ -13,8 +13,6 @@ import android.widget.TextView;
 public class Dashboard extends AppCompatActivity {
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,8 +20,7 @@ public class Dashboard extends AppCompatActivity {
 
         extract_userinfo r = new extract_userinfo(this);
         TextView tv = (TextView)findViewById(R.id.topbar);
-        tv.setText("Welcome "+r.user_name);
-
+        tv.setText("Welcome, "+r.user_name);
     }
 
     public void nearby_pharma(View view)

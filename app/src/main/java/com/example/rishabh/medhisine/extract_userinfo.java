@@ -14,10 +14,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Set;
 
 public class extract_userinfo extends AsyncTask<String, Void, String>{
 
-    public String user_name;
+    public static String user_name;
     public String user_Email;
     public String user_pass;
     public String user_phone;
@@ -56,18 +57,19 @@ public class extract_userinfo extends AsyncTask<String, Void, String>{
         }
     }
 
-        public void onPostExecute(String result)
+        public void onPostExecute (String result)
         {
             Log.e("result",result);
             String jsonstr = result;
 
             try{
                 JSONObject jsonobj = new JSONObject(jsonstr);
-                String user_name = jsonobj.getString("Name");
+                user_name = jsonobj.getString("Name");
                 String user_Email = jsonobj.getString("EMail");
                 String user_pass = jsonobj.getString("Passw");
                 String user_phone = jsonobj.getString("Phone");
                 String user_id = jsonobj.getString("_id");
+
 
                 Log.e("username", user_name);
 
@@ -77,6 +79,5 @@ public class extract_userinfo extends AsyncTask<String, Void, String>{
                 e.printStackTrace();
             }
        }
-
     }
 

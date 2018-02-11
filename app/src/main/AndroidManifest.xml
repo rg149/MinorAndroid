@@ -22,7 +22,7 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".Dashboard" />
         <activity android:name=".Search_Activity" />
-        <activity android:name=".MyAccount"></activity>
+        <activity android:name=".MyAccount" />
     </application>
 
 </manifest>

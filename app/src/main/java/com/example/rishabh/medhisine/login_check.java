@@ -18,10 +18,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
+
 public class login_check extends AsyncTask<String, Void, String>{
 
-    private Context context;
     String phone;
+
+    private Context context;
+
 
     public ProgressDialog progressdialog;
 
@@ -40,19 +43,21 @@ public class login_check extends AsyncTask<String, Void, String>{
 
     public String doInBackground(String... arg0) {
 
-        String phone=arg0[0];
+        phone=arg0[0];
         String pass = arg0[1];
         String link;
         String result;
         String data="";
+
         BufferedReader bufferedReader;
 
 
         try{
                 data += "?Phone=" + URLEncoder.encode(phone,"UTF-8");
-                data += "&Passw=" +URLEncoder.encode(pass,"UTF-8");
+                data += "&Passw='" +URLEncoder.encode(pass,"UTF-8")+"'";
 
                 link = "http://rishabh2.000webhostapp.com/login.php" + data;
+                Log.e("Login Chekc link", data);
 
                 URL url = new URL(link);
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -84,6 +89,9 @@ public class login_check extends AsyncTask<String, Void, String>{
                 }
                 if(valid.equals("Valid"))
                 {
+                    Log.e("phone",phone);
+                    new extract_userinfo(context).execute(phone);
+
                     Intent i = new Intent(context, Dashboard.class);
                     context.startActivity(i);
                 }

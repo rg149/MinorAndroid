@@ -1,19 +1,19 @@
 package com.example.rishabh.medhisine;
 
-import android.content.Context;
-import android.content.res.ColorStateList;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
-import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 public class SignUpActivity extends AppCompatActivity {
+
+    public static String phones;
+    public static String name;
+    public static String email;
+    public static String passw;
 
 
     @Override
@@ -32,14 +32,15 @@ public class SignUpActivity extends AppCompatActivity {
         EditText phon = (EditText) findViewById(R.id.editphone_signup);
 
 
-        String email = emai.getText().toString();
-        String passw = pass.getText().toString();
+        email = emai.getText().toString();
+        passw = pass.getText().toString();
         String conpass = confirmpass.getText().toString();
-        String names = nam.getText().toString();
-        String phones = phon.getText().toString();
+        name = nam.getText().toString();
+        phones = phon.getText().toString();
 
         char[] emailc = email.toCharArray();
-        check_values(email, names, conpass,  passw, phones, emailc);
+        check_values(email, name, conpass,  passw, phones, emailc);
+
 
     }
 
@@ -90,7 +91,8 @@ public class SignUpActivity extends AppCompatActivity {
         }
 
         if (v == 5 || v == 6) {
-            new Sql_Connect(this).execute(names, email, passw, phones);
+            new CheckUser_Existence(this).execute(phones);
+
         }
     }
 
