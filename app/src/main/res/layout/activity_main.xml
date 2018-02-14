@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#3d4344">
 
     <ImageView
         android:id="@+id/applogo"
@@ -18,45 +19,55 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/applogo"
-
         android:orientation="vertical">
-        
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="LOGIN"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            />
+
 
         <EditText
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center"
             android:id="@+id/editphone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:hint="Phone"
-            android:padding="20dp"
+            android:drawableLeft="@drawable/ic_phone_white_18dp"
             android:inputType="number"
-            android:maxLength="10"/>
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:maxLength="10"
+            android:drawablePadding="15dp"
+            android:textColorHint="@color/hintcolor"
+            android:backgroundTint="@color/barcolor"/>
 
          <EditText
              android:id="@+id/editpassword"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
+             android:layout_width="320dp"
+             android:layout_gravity="center"
+             android:layout_height="50dp"
              android:layout_marginLeft="20dp"
              android:layout_marginRight="20dp"
+             android:layout_marginTop="10dp"
              android:hint="Password"
-             android:padding="20dp"
+             android:textColor="@color/white"
+             android:textSize="18dp"
+             android:textColorHint="@color/hintcolor"
+             android:backgroundTint="@color/barcolor"
+             android:drawablePadding="15dp"
+             android:drawableLeft="@drawable/ic_lock_white_18dp"
              android:inputType="textPassword"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:text="Sign in"
+            android:textAllCaps="false"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            android:textSize="18dp"
             android:layout_gravity="center_horizontal"
-            android:onClick="sign_in"/>
+            android:onClick="sign_in"
+            android:background="@drawable/edittextshape"/>
 
         <TextView
             android:id="@+id/forgotpass"
@@ -67,6 +78,7 @@
             android:textSize="15dp"
             android:layout_gravity="right"
             android:clickable="true"
+            android:textColor="@color/white"
             android:autoLink="web"/>
 
         <TextView
@@ -80,23 +92,24 @@
             android:paddingTop="14dp"
             android:text="No Account? Create One"
             android:textSize="15dp"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:autoLink="web"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Or"
-            android:textSize="20dp"
-            android:textStyle="bold|italic"
-            android:paddingTop="4dp"/>
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:text="Or"-->
+            <!--android:textSize="20dp"-->
+            <!--android:textStyle="bold|italic"-->
+            <!--android:paddingTop="4dp"/>-->
 
-        <ImageView
-        android:id="@+id/sign_in_button"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:src="@drawable/google_login_icon" />
+        <!--<ImageView-->
+        <!--android:id="@+id/sign_in_button"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:src="@drawable/google_login_icon" />-->
     </LinearLayout>
 
 </RelativeLayout>

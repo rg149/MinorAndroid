@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_centerHorizontal="true"
-        android:text="Welcome!, UserName"
+        android:text="Welcome!"
         android:textSize="25dp"
         android:textColor="#ffff"
         android:textStyle="bold"
@@ -60,7 +60,8 @@
           android:drawableTop="@drawable/ic_local_hospital_white_48dp"
           android:text="My Prescriptions"
           android:textSize="13dp"
-          android:layout_weight="1"/>
+          android:layout_weight="1"
+          android:onClick="my_prescriptions"/>
 
       <Button
           android:id="@+id/nearby"

@@ -11,8 +11,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/appicon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MainActivity">
+        android:theme="@style/MyTheme">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,6 +23,8 @@
         <activity android:name=".Dashboard" />
         <activity android:name=".Search_Activity" />
         <activity android:name=".MyAccount" />
+        <activity android:name=".MyPrescriptions" />
+        <activity android:name=".MainActivity"/>
     </application>
 
 </manifest>

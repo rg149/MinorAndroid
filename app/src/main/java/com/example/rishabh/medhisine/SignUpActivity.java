@@ -1,5 +1,6 @@
 package com.example.rishabh.medhisine;
 
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,7 +28,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         EditText emai = (EditText) findViewById(R.id.editmail);
         EditText pass = (EditText) findViewById(R.id.editpass_signup);
-        EditText confirmpass = (EditText) findViewById(R.id.confrim_pass);
+        EditText confirmpass = (EditText) findViewById(R.id.confirm_pass);
         EditText nam = (EditText) findViewById(R.id.editname);
         EditText phon = (EditText) findViewById(R.id.editphone_signup);
 

@@ -12,15 +12,15 @@ import android.widget.TextView;
 
 public class Dashboard extends AppCompatActivity {
 
+    //extract_userinfo r = new extract_userinfo(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        extract_userinfo r = new extract_userinfo(this);
         TextView tv = (TextView)findViewById(R.id.topbar);
-        tv.setText("Welcome, "+r.user_name);
+        tv.setText("Welcome, "+extract_userinfo.user_name);
     }
 
     public void nearby_pharma(View view)
@@ -32,6 +32,13 @@ public class Dashboard extends AppCompatActivity {
     public void search_medicine(View view)
     {
         Intent i = new Intent(this, Search_Activity.class);
+        startActivity(i);
+    }
+    public void my_prescriptions(View view)
+    {
+        new extract_prescription(this).execute(extract_userinfo.user_id);
+
+        Intent i = new Intent(this, MyPrescriptions.class);
         startActivity(i);
     }
 }

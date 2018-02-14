@@ -29,7 +29,16 @@ public class OTPGenerate extends AsyncTask<String, Void, String>{
     String result;
     BufferedReader bufferedReader;
     public static String otp_link;
-    String apiKey = "iktlQK7yrqU-SQJuf6cy2u37AkAUGEO9KEkzOkgFex 1";
+
+    //String apiKey = "iktlQK7yrqU-SQJuf6cy2u37AkAUGEO9KEkzOkgFex"; //rishabhgupta556
+    //String apiKey = "tmta8AyNBPU-qjXVFWioZYnvq5nk0oWL5QtBquKgYX"; //rishabh.rg149
+    String apiKey = "197929A4VYUZviW7jD5a81ce6a";
+
+
+
+    //http://api.msg91.com/api/sendhttp.php?sender=MSGIND&route=4
+    // &mobiles=919131593762&authkey=197929A4VYUZviW7jD5a81ce6a&country=91&message=%22Your%20OTP%20is%20%22
+
     public static String otp;
 
 
@@ -45,16 +54,18 @@ public class OTPGenerate extends AsyncTask<String, Void, String>{
         int o = 10000 + r.nextInt(20000);
         otp = Integer.toString(o);
         Log.e("OTP", otp);
-        String message = "Your One Time Password for Medicine App is "+otp+ " Jai EngiNerds :P ";
+        String message = "Your One Time Password for Activating your Medicine App Account is "+otp+ " -Team EngiNerds";
 
         try {
 
-            otp_data += "?apiKey=" + URLEncoder.encode(apiKey, "UTF-8");
-            otp_data += "&numbers=" + URLEncoder.encode(sua.phones, "UTF-8");
+            otp_data += "?sender=NGNRDS";
+            otp_data += "&route=4";
+            otp_data += "&mobiles=91" + URLEncoder.encode(sua.phones, "UTF-8");
+            otp_data += "&authkey=" + URLEncoder.encode(apiKey, "UTF-8");
+            otp_data += "&country=91";
             otp_data += "&message=" + URLEncoder.encode(message, "UTF-8");
-            otp_data += "&sender=TXTLCL";
 
-            otp_link = "https://api.textlocal.in/send/" + otp_data;
+            otp_link = "http://api.msg91.com/api/sendhttp.php" + otp_data;
 
             Log.e("otp",otp_link);
 
@@ -63,6 +74,7 @@ public class OTPGenerate extends AsyncTask<String, Void, String>{
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
             result = bufferedReader.readLine();
+            Log.e("result otp",result);
         }
         catch (Exception e) {
 

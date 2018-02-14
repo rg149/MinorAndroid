@@ -7,10 +7,17 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    <style name = "MyTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+        <style name = "MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
-        <item name="android:windowFullscreen">true</item>
         <item name="android:windowActionBar">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:colorAccent">@color/barcolor</item>
+        <item name="android:colorControlActivated">@color/barcolor</item>
+        <item name="android:colorControlHighlight">@color/barcolor</item>
+        <item name="android:statusBarColor">@color/barcolor</item>
+        <item name="android:colorControlNormal">@color/barcolor</item>
+        <item name="android:textColorHint">@color/white</item>
     </style>
 
 
