@@ -12,25 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:minHeight="90dp">
-
-        <TextView
-            android:id="@+id/p_id"
-            android:layout_marginLeft="20dp"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:gravity="bottom"
-            android:textSize="20dp"
-            android:text="P_id" />
+        android:minHeight="60dp"
+        android:layout_marginTop="10dp">
 
         <TextView
             android:id="@+id/date"
             android:layout_marginLeft="20dp"
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:layout_height="40dp"
             android:gravity="bottom"
             android:textSize="20dp"
-            android:text="date" />
+            android:text="date"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/doctor"
@@ -38,8 +32,14 @@
             android:layout_height="40dp"
             android:gravity="top"
             android:text="doctor"
-            android:layout_marginTop="30dp"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_navigate_next_white_18dp"
+            android:tint="@color/barcolor" />
 
     </LinearLayout>
 

@@ -12,11 +12,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 
-class ListAdapter extends ArrayAdapter<prescription> {
+class Medicine_ListAdapter extends ArrayAdapter<medlist> {
 
     private int mResourceColour;
 
-    public ListAdapter(Context context, ArrayList<prescription> words, int ResourceColor) {
+    public Medicine_ListAdapter(Context context, ArrayList<medlist> words, int ResourceColor) {
         super(context, 0, words);
         mResourceColour = ResourceColor;
     }
@@ -27,21 +27,21 @@ class ListAdapter extends ArrayAdapter<prescription> {
         View listItemView = convertView;
         if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.prescription_list, parent, false);
+                    R.layout.med_listitem, parent, false);
         }
 
-        prescription current = getItem(position);
+        medlist current = getItem(position);
 
-        TextView setdate = (TextView) listItemView.findViewById(R.id.date);
-        setdate.setText(current.getDate());
+        TextView setmedicine = (TextView) listItemView.findViewById(R.id.mediname);
+        setmedicine.setText(current.getMedicine());
 
         // Find the TextView in the list_item.xml layout with the ID default_text_view.
 
-        TextView setdoctor = (TextView) listItemView.findViewById(R.id.doctor);
-        setdoctor.setText(current.getDoctor());
+        TextView setdosage = (TextView) listItemView.findViewById(R.id.dosage);
+        setdosage.setText(current.getDosage());
 
-//        TextView setpresid = (TextView) listItemView.findViewById(R.id.p_id);
-//        setpresid.setText(extract_prescription.p_id);
+        TextView setduration = (TextView) listItemView.findViewById(R.id.duration);
+        setduration.setText(current.getDuration());
 
 
         View text_container = listItemView.findViewById(R.id.textcontainer);

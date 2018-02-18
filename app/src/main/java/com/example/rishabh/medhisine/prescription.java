@@ -12,5 +12,13 @@ public class prescription {
         doctor = mdoctor;
     }
 
+    public String getDate()
+    {
+        return date;
+    }
+    public String getDoctor()
+    {
+        return doctor;
+    }
 
 }

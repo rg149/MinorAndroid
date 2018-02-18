@@ -1,5 +1,6 @@
 package com.example.rishabh.medhisine;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -21,9 +22,10 @@ import java.net.URLEncoder;
 
 public class login_check extends AsyncTask<String, Void, String>{
 
-    String phone;
+    public static String phone;
 
     private Context context;
+    Activity activity;
 
 
     public ProgressDialog progressdialog;
@@ -57,7 +59,7 @@ public class login_check extends AsyncTask<String, Void, String>{
                 data += "&Passw='" +URLEncoder.encode(pass,"UTF-8")+"'";
 
                 link = "http://rishabh2.000webhostapp.com/login.php" + data;
-                Log.e("Login Chekc link", data);
+                //Log.e("Login Check link", data);
 
                 URL url = new URL(link);
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -90,7 +92,7 @@ public class login_check extends AsyncTask<String, Void, String>{
                 if(valid.equals("Valid"))
                 {
                     Log.e("phone",phone);
-                    new extract_userinfo(context).execute(phone);
+                    //new extract_userinfo(context).execute(phone);
 
                     Intent i = new Intent(context, Dashboard.class);
                     context.startActivity(i);

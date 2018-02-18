@@ -13,6 +13,7 @@
         android:textColor="@color/white"
         android:layout_gravity="center_horizontal"
         android:padding="10dp"
+        android:textStyle="bold"
         android:layout_marginBottom="20dp"/>
 
     <LinearLayout
@@ -32,7 +33,7 @@
         <EditText
             android:id="@+id/editname"
             android:hint="Full Name"
-            android:textColorHint="#dddfff"
+            android:textColorHint="@color/hintcolor"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:layout_width="match_parent"
@@ -71,7 +72,7 @@
             android:id="@+id/editmail"
             android:hint="Email"
             android:layout_weight="1"
-            android:textColorHint="@color/white"
+            android:textColorHint="@color/hintcolor"
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -106,7 +107,7 @@
         <EditText
             android:id="@+id/editpass_signup"
             android:hint="Password"
-            android:textColorHint="@color/white"
+            android:textColorHint="@color/hintcolor"
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -133,7 +134,7 @@
     <EditText
             android:id="@+id/confirm_pass"
             android:hint="Confirm Password"
-            android:textColorHint="@color/white"
+            android:textColorHint="@color/hintcolor"
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -166,13 +167,14 @@
         <EditText
             android:id="@+id/editphone_signup"
             android:hint="Mobile"
-            android:textColorHint="@color/white"
+            android:textColorHint="@color/hintcolor"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:maxLength="10"
             android:textColor="@color/white"
             android:drawableLeft="@drawable/ic_phone_white_18dp"
             android:drawablePadding="18dp"

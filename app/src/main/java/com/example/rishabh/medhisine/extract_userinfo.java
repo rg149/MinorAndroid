@@ -1,9 +1,11 @@
 package com.example.rishabh.medhisine;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -59,27 +61,24 @@ public class extract_userinfo extends AsyncTask<String, Void, String>{
         }
     }
 
-        public void onPostExecute (String result)
+    public void onPostExecute (String result)
+    {
+        Log.e("result",result);
+        String jsonstr = result;
+
+        try{
+            JSONObject jsonobj = new JSONObject(jsonstr);
+            user_name = jsonobj.getString("Name");
+            user_Email = jsonobj.getString("EMail");
+            user_pass = jsonobj.getString("Passw");
+            user_phone = jsonobj.getString("Phone");
+            user_id = jsonobj.getString("_id");
+
+            //Log.e("username", user_name);
+        }
+        catch (JSONException e)
         {
-            Log.e("result",result);
-            String jsonstr = result;
-
-            try{
-                JSONObject jsonobj = new JSONObject(jsonstr);
-                user_name = jsonobj.getString("Name");
-                user_Email = jsonobj.getString("EMail");
-                user_pass = jsonobj.getString("Passw");
-                user_phone = jsonobj.getString("Phone");
-                user_id = jsonobj.getString("_id");
-
-
-                Log.e("userid", user_id);
-
-            }
-            catch (JSONException e)
-            {
-                e.printStackTrace();
-            }
-       }
+            e.printStackTrace();
+        }
     }
-
+}

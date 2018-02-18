@@ -1,17 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <AutoCompleteTextView
-        android:id="@+id/auto_complete"
-        android:layout_margin="10dp"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:width="35dp"
-        android:hint="Search"
-        android:textColor="@color/black"
-        />
+        android:layout_height="180dp"
+        android:background="@color/darkbackground"
+        android:orientation="vertical">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="35dp"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:text="Search Medicine"
+            android:textColor="@color/white"/>
+
+        <EditText
+            android:id="@+id/auto_complete"
+            android:layout_margin="10dp"
+            android:layout_marginTop="100dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:textSize="20dp"
+            android:width="35dp"
+            android:drawableLeft="@drawable/ic_search_black_24dp"
+            android:drawableTint="@color/barcolor"
+            android:drawablePadding="5dp"
+            android:textColorHint="#dd1a82a5"
+            android:hint="Search Medicines..."
+            android:background="@color/white"
+            android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+    <LinearLayout
+
+        android:id="@+id/med_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ListView
+
+            android:id="@+id/listmed"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ListView>
+
+    </LinearLayout>
 
 </LinearLayout>

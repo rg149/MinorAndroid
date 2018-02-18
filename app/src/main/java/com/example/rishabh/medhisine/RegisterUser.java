@@ -54,7 +54,7 @@ public class RegisterUser extends AsyncTask<String, Void, String> {
             link="http://rishabh2.000webhostapp.com/RegisterUser.php"+data;
             //link = "http://enginerds.heliohost.org/localconn.php"+data;
 
-            Log.e("Register User link", data);
+            //Log.e("Register User link", data);
 
             URL url = new URL(link);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
