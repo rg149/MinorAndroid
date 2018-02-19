@@ -19,16 +19,10 @@ public class Search_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_);
 
-        if(Dashboard.s == 1)
-        {
-        new FetchMedicines().execute();
-        }
-
         EditText editText = (EditText)findViewById(R.id.auto_complete);
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, FetchMedicines.med);
         ListView listView = (ListView)findViewById(R.id.listmed);
         listView.setAdapter(adapter);
-
 
         editText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -47,8 +41,4 @@ public class Search_Activity extends AppCompatActivity {
         });
 
     }
-
-
-
-
 }

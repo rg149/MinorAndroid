@@ -1,5 +1,7 @@
 package com.example.rishabh.medhisine;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.AutoCompleteTextView;
@@ -17,6 +19,11 @@ import java.util.ArrayList;
 
 
 public class FetchMedicines extends AsyncTask<String, Void , String> {
+    private Context context;
+
+    public FetchMedicines(Context context){
+        this.context = context;
+    }
 
 
     public static ArrayList<String> med = new ArrayList<String>();
@@ -53,8 +60,10 @@ public class FetchMedicines extends AsyncTask<String, Void , String> {
                 JSONObject json_data = json_arr.getJSONObject(i);
                 med.add(json_data.getString("Name"));
             }
-
+            Intent i = new Intent(context, Search_Activity.class);
+            context.startActivity(i);
         }
+
         catch (JSONException e)
         {
             e.printStackTrace();

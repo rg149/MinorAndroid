@@ -23,6 +23,7 @@ import java.net.URLEncoder;
 public class login_check extends AsyncTask<String, Void, String>{
 
     public static String phone;
+    public static JSONObject temp2;
 
     private Context context;
     Activity activity;
@@ -75,14 +76,12 @@ public class login_check extends AsyncTask<String, Void, String>{
         }
         public void onPostExecute(String result)
         {
-            Log.e("result",result);
             progressdialog.cancel();
             String jsonstr = result;
 
             try{
                 JSONObject jsonobj = new JSONObject(jsonstr);
                 String valid = jsonobj.getString("status");
-                Log.e("valid",valid);
 
                 if(valid.equals("Invalid"))
                 {
@@ -91,13 +90,10 @@ public class login_check extends AsyncTask<String, Void, String>{
                 }
                 if(valid.equals("Valid"))
                 {
-                    Log.e("phone",phone);
-                    //new extract_userinfo(context).execute(phone);
-
-                    Intent i = new Intent(context, Dashboard.class);
-                    context.startActivity(i);
+                    new extract_userinfo(context).execute(phone);
                 }
             }
+
             catch (JSONException e)
             {
                 e.printStackTrace();

@@ -10,21 +10,23 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Dashboard extends AppCompatActivity {
-
-    int c = 0;
-    public static int s = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-
-        new extract_userinfo(this).execute(login_check.phone);
-
-//        TextView tv = (TextView)findViewById(R.id.topbar);
-//        tv.setText("Welcome, "+extract_userinfo.user_name);
+        TextView tv = (TextView)findViewById(R.id.topbar);
+        try {
+            JSONObject jsonObject = new JSONObject(extract_userinfo.user_result);
+            tv.setText("Welcome, "+jsonObject.getString("Name"));
+        }
+        catch (JSONException e){
+            e.printStackTrace();
+        }
     }
 
     public void nearby_pharma(View view)
@@ -36,29 +38,14 @@ public class Dashboard extends AppCompatActivity {
 
     public void search_medicine(View view)
     {
-        s += 1;
-        Intent i = new Intent(this, Search_Activity.class);
-        startActivity(i);
+        new FetchMedicines(Dashboard.this).execute();
+        FetchMedicines.med.clear();
     }
+
     public void my_prescriptions(View view)
     {
-        c += 1;
-        if(c == 1 ) {
         new extract_prescription(this).execute(extract_userinfo.user_phone);
-        }
-        Intent i = new Intent(this, MyPrescriptions.class);
-        startActivity(i);
-    }
-
-    @Override
-    public void onBackPressed()
-    {
-        super.onBackPressed();
         extract_prescription.prescriptions.clear();
-        pres_conn.medicine_list.clear();
-        c = 0;
-        s = 0;
     }
-
 
 }

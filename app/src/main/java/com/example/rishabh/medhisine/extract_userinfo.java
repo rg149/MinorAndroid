@@ -18,13 +18,17 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Set;
 
+import javax.sql.StatementEvent;
+
 public class extract_userinfo extends AsyncTask<String, Void, String>{
 
-    public static String user_name;
+    public static String jsonstruser;
     public static String user_Email;
     public static String user_pass;
     public static String user_phone;
     public static String user_id;
+    public static JSONObject jsonobj;
+    public static String user_result;
 
     public Context context;
 
@@ -33,6 +37,7 @@ public class extract_userinfo extends AsyncTask<String, Void, String>{
         this.context=context;
     }
 
+    @Override
     public String doInBackground(String... arg0) {
 
         String phone=arg0[0];
@@ -40,7 +45,6 @@ public class extract_userinfo extends AsyncTask<String, Void, String>{
         String link;
         String result;
         BufferedReader bufferedReader;
-
 
         try{
             data += "?Phone=" + URLEncoder.encode(phone,"UTF-8");
@@ -52,8 +56,9 @@ public class extract_userinfo extends AsyncTask<String, Void, String>{
             URL url = new URL(link);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            result = bufferedReader.readLine();
-            return result;
+            user_result = bufferedReader.readLine();
+            //Log.e("result", user_result);
+            return user_result;
         }
 
         catch (Exception e) {
@@ -61,24 +66,23 @@ public class extract_userinfo extends AsyncTask<String, Void, String>{
         }
     }
 
-    public void onPostExecute (String result)
+    public void onPostExecute (String user_result)
     {
-        Log.e("result",result);
-        String jsonstr = result;
+        jsonstruser = user_result;
 
         try{
-            JSONObject jsonobj = new JSONObject(jsonstr);
-            user_name = jsonobj.getString("Name");
+            jsonobj = new JSONObject(jsonstruser);
+            //user_name = jsonobj.getString("Name");
             user_Email = jsonobj.getString("EMail");
             user_pass = jsonobj.getString("Passw");
             user_phone = jsonobj.getString("Phone");
             user_id = jsonobj.getString("_id");
-
-            //Log.e("username", user_name);
         }
         catch (JSONException e)
         {
             e.printStackTrace();
         }
+            Intent i = new Intent(context, Dashboard.class);
+            context.startActivity(i);
     }
 }

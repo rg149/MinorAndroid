@@ -3,8 +3,8 @@ package com.example.rishabh.medhisine;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,7 +26,6 @@ public class extract_prescription extends AsyncTask<String , Void, String>{
     public static String pres_array;
     public static JSONArray json_arr;
 
-
     ProgressDialog progressDialog;
 
     public Context context;
@@ -38,7 +37,6 @@ public class extract_prescription extends AsyncTask<String , Void, String>{
 
     public void onPreExecute()
     {
-
         progressDialog = new ProgressDialog(context);
         progressDialog.setMessage("Loading..");
         progressDialog.show();
@@ -54,17 +52,13 @@ public class extract_prescription extends AsyncTask<String , Void, String>{
         try{
 
             data += "?Phone=" + URLEncoder.encode(phone,"UTF-8");
-
             link = "http://rishabh2.000webhostapp.com/getpres.php" + data;
-
-            Log.e("pres link",link);
-
+            //Log.e("pres link",link);
 
             URL url = new URL(link);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
             pres_array = bufferedReader.readLine();
-
             return pres_array;
         }
 
@@ -78,23 +72,19 @@ public class extract_prescription extends AsyncTask<String , Void, String>{
         //Log.e("prescription array",pres_array);
 
         try{
-
             json_arr = new JSONArray(pres_array);
-            for(int i=0; i<json_arr.length(); i++)
-            {
+            for(int i=0; i<json_arr.length(); i++) {
                 JSONObject json_data = json_arr.getJSONObject(i);
 
                 date = json_data.getString("Date");
-                doctor =  json_data.getString("Doctor");
+                doctor = json_data.getString("Doctor");
                 p_id = json_data.getString("P_id");
-                //Log.e("date", date);
-                //Log.e("doctor",doctor);
-                //Log.e("Pid",p_id);
 
                 prescriptions.add(new prescription(date, doctor));
                 progressDialog.cancel();
             }
-
+                Intent intent = new Intent(context, MyPrescriptions.class);
+                context.startActivity(intent);
         }
         catch (JSONException e)
         {
