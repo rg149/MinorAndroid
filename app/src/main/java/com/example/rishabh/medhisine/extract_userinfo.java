@@ -51,7 +51,7 @@ public class extract_userinfo extends AsyncTask<String, Void, String>{
 
             link = "http://rishabh2.000webhostapp.com/getjson.php" + data;
 
-            Log.e("linkuserifo",link);
+            //Log.e("linkuserifo",link);
 
             URL url = new URL(link);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();

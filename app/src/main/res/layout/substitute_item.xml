@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/container_substitute"
+        android:layout_width="350sp"
+        android:layout_height="100sp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/white"
+        android:layout_margin="10sp">
+
+        <TextView
+            android:id="@+id/mediname2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medicine name"
+            android:gravity="left"
+            android:textSize="20sp"
+            android:layout_marginLeft="5sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10sp"
+            android:textColor="@color/barcolor"/>
+
+        <TextView
+            android:id="@+id/brandname2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Brand name"
+            android:layout_below="@id/mediname2"
+            android:gravity="left"
+            android:layout_marginLeft="5sp"
+            android:textSize="15sp"
+            android:layout_marginTop="5sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/price2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Price"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="5sp"
+            android:textSize="18sp"
+            android:layout_below="@id/brandname2"
+            android:textColor="#8e0000"/>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -20,6 +20,8 @@ import java.util.ArrayList;
 
 public class FetchMedicines extends AsyncTask<String, Void , String> {
     private Context context;
+    public static JSONArray json_arr;
+
 
     public FetchMedicines(Context context){
         this.context = context;
@@ -54,10 +56,11 @@ public class FetchMedicines extends AsyncTask<String, Void , String> {
     {
         try{
 
-            JSONArray json_arr = new JSONArray(result);
+            json_arr = new JSONArray(result);
             for(int i=0; i<json_arr.length(); i++)
             {
                 JSONObject json_data = json_arr.getJSONObject(i);
+
                 med.add(json_data.getString("Name"));
             }
             Intent i = new Intent(context, Search_Activity.class);

@@ -2,12 +2,14 @@ package com.example.rishabh.medhisine;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.support.annotation.IntegerRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -47,5 +49,15 @@ public class Dashboard extends AppCompatActivity {
         new extract_prescription(this).execute(extract_userinfo.user_phone);
         extract_prescription.prescriptions.clear();
     }
+    public void medlist(View view)
+    {
+        Intent intent = new Intent(this, MedicineList.class);
+        startActivity(intent);
+    }
+    public void myaccount(View view)
+    {
+        Intent intent = new Intent(this, MyAccount.class);
+        startActivity(intent);
+    }
 
-}
+    }

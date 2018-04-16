@@ -23,7 +23,6 @@ public class MyPrescriptions extends AppCompatActivity {
         final ListAdapter adapter = new ListAdapter(this, extract_prescription.prescriptions, R.color.barcolor);
         listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(adapter);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override

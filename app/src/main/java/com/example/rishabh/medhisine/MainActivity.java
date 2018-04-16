@@ -1,6 +1,7 @@
 package com.example.rishabh.medhisine;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -35,8 +36,7 @@ public class MainActivity extends AppCompatActivity {
         String login_pass = lpass.getText().toString();
 
         new login_check(this).execute(login_phone, login_pass);
-
-
     }
+
 }
 

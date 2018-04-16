@@ -25,7 +25,9 @@
         <activity android:name=".MyAccount" />
         <activity android:name=".MyPrescriptions" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".preschart"></activity>
+        <activity android:name=".preschart" />
+        <activity android:name=".MedicineList" />
+        <activity android:name=".Substitute_Page"></activity>
     </application>
 
 </manifest>
