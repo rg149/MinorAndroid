@@ -18,6 +18,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Search_Activity extends AppCompatActivity {
+
     ArrayAdapter<String> adapter;
     public static JSONObject temp;
 
@@ -45,8 +46,8 @@ public class Search_Activity extends AppCompatActivity {
             }
         });
 
-
         editText.addTextChangedListener(new TextWatcher() {
+
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 Search_Activity.this.adapter.getFilter().filter(charSequence);
@@ -54,8 +55,8 @@ public class Search_Activity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
+
             @Override
             public void afterTextChanged(Editable editable) {
 

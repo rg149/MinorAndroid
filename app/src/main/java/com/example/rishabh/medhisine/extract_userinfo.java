@@ -1,6 +1,7 @@
 package com.example.rishabh.medhisine;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -31,11 +32,20 @@ public class extract_userinfo extends AsyncTask<String, Void, String>{
     public static String user_result;
 
     public Context context;
+    ProgressDialog progressDialog;
+
 
     public extract_userinfo(Context context)
     {
         this.context=context;
     }
+//
+//    public void onPreExecute()
+//    {
+//        progressDialog = new ProgressDialog(context);
+//        progressDialog.setMessage("Please Wait..");
+//        progressDialog.show();
+//    }
 
     @Override
     public String doInBackground(String... arg0) {
@@ -84,5 +94,7 @@ public class extract_userinfo extends AsyncTask<String, Void, String>{
         }
             Intent i = new Intent(context, Dashboard.class);
             context.startActivity(i);
+            //progressDialog.cancel();
+
     }
 }

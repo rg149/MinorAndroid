@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:id="@+id/searchdash"
         android:layout_height="180dp"
-        android:background="@color/darkbackground"
+        android:background="@color/black"
         android:orientation="vertical">
 
         <TextView

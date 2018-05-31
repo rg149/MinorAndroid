@@ -21,7 +21,6 @@
             android:gravity="left"
             android:textSize="20sp"
             android:layout_marginLeft="5sp"
-            android:textStyle="bold"
             android:layout_marginTop="10sp"
             android:textColor="@color/barcolor"/>
 

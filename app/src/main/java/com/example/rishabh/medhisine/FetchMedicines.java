@@ -19,14 +19,15 @@ import java.util.ArrayList;
 
 
 public class FetchMedicines extends AsyncTask<String, Void , String> {
+
     private Context context;
     public static JSONArray json_arr;
 
 
-    public FetchMedicines(Context context){
+    public FetchMedicines(Context context)
+    {
         this.context = context;
     }
-
 
     public static ArrayList<String> med = new ArrayList<String>();
 
@@ -37,9 +38,7 @@ public class FetchMedicines extends AsyncTask<String, Void , String> {
         BufferedReader bufferedReader;
 
         try{
-
             link = "http://rishabh2.000webhostapp.com/med.php";
-
             URL url = new URL(link);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));

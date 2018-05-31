@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +26,7 @@ public class login_check extends AsyncTask<String, Void, String>{
 
     public static String phone;
     public static JSONObject temp2;
+    public static SharedPreferences prefs;
 
     private Context context;
     Activity activity;
@@ -90,6 +93,8 @@ public class login_check extends AsyncTask<String, Void, String>{
                 }
                 if(valid.equals("Valid"))
                 {
+                    prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    prefs.edit().putString("userid",phone).apply();
                     new extract_userinfo(context).execute(phone);
                 }
             }

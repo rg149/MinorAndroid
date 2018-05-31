@@ -10,6 +10,6 @@ android:background="@color/white" >
     android:layout_height="200dp"
     android:foregroundGravity="center_horizontal"
     android:layout_centerInParent="true"
-    android:src="@drawable/appicon" />
+    android:src="@drawable/appicon"/>
 
 </RelativeLayout>

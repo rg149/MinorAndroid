@@ -8,4 +8,6 @@
     <color name="white">#fff</color>
     <color name="hintcolor">#dddfff</color>
     <color name="darkbackground">#3d4344</color>
+    <color name="suncolor">#f9d71c</color>
+
 </resources>

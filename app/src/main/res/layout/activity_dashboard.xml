@@ -1,125 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/barcolor">
 
     <TextView
         android:id="@+id/topbar"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Welcome!"
-        android:textSize="25dp"
+        android:text="Greetings!"
+        android:paddingTop="20sp"
+        android:textSize="15dp"
         android:textColor="#ffff"
-        android:textStyle="bold"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        android:paddingLeft="10sp"
+        android:background="@color/black"/>
+
+    <LinearLayout
+        android:id="@+id/toplayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topbar"
+        android:background="@color/black"
+        android:orientation="horizontal"
+        android:paddingBottom="20sp"
+        android:weightSum="5">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:paddingBottom="15sp"
+            android:paddingLeft="10sp"
+            android:paddingTop="6sp"
+            android:text="name"
+            android:textAlignment="textStart"
+            android:textColor="#ffff"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/dayicon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:paddingRight="10sp"
+            android:src="@drawable/sunset"
+            android:tint="#f9d71c" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/above"
+        android:layout_marginTop="1sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toplayout"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/my_account"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/black"
+            android:drawableTop="@drawable/ic_account_circle_white_48dp"
+            android:onClick="myaccount"
+            android:padding="15dp"
+            android:layout_marginRight="1sp"
+            android:text="My Account"
+            android:textColor="@color/white"
+            android:textSize="13dp"/>
+
+
+        <Button
+            android:id="@+id/my_presc"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/black"
+            android:drawableTop="@drawable/ic_assignment_white_48dp"
+            android:onClick="my_prescriptions"
+            android:padding="15dp"
+            android:text="My Prescription"
+            android:textColor="@color/white"
+            android:textSize="13dp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/middle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/above"
+        android:layout_marginTop="1sp"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/nearby"
+            android:layout_width="109sp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="1sp"
+            android:layout_weight="1"
+            android:background="@color/black"
+            android:drawableTop="@drawable/ic_near_me_white_48dp"
+            android:onClick="nearby_pharma"
+            android:text="Nearby Pharmacy"
+            android:textColor="@color/white"
+            android:textSize="13dp" />
+
+        <Button
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/black"
+            android:drawableTop="@drawable/ic_search_white_48dp"
+            android:onClick="search_medicine"
+            android:padding="15dp"
+            android:text="Search"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="13dp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/middle"
+        android:layout_marginTop="1sp"
+        android:id="@+id/bottom"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/reminder"
+            android:layout_width="111dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="1sp"
+            android:layout_weight="1"
+            android:background="@color/black"
+            android:drawableTop="@drawable/ic_alarm_white_48dp"
+            android:onClick="my_prescriptions"
+            android:padding="10dp"
+            android:text="Reminders (BETA)"
+            android:textColor="@color/white"
+            android:textSize="13dp" />
+
+        <Button
+            android:id="@+id/fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/black"
+            android:drawableTop="@drawable/baseline_exit_to_app_white_48dp"
+            android:onClick="signout"
+            android:padding="15dp"
+            android:text="Logout"
+            android:textColor="@color/white"
+            android:textSize="13dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/bottom"
+        android:layout_centerHorizontal="true"
+        android:background="@color/barcolor"
+        android:paddingLeft="10sp"
+        android:gravity="center"
+        android:layout_marginTop="1sp"
+        android:text="MedNetwork"
         android:textAlignment="center"
-        android:background="@color/barcolor"/>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:id="@+id/above"
-                android:background="@color/darkbackground"
-                android:elevation="20dp">
-
-
-                <Button
-                    android:id="@+id/my_account"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@color/darkbackground"
-                    android:drawableTop="@drawable/ic_account_circle_white_48dp"
-                    android:padding="15dp"
-                    android:text="My Account"
-                    android:textColor="@color/white"
-                    android:onClick="myaccount"
-                    android:textSize="13dp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/search"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@color/darkbackground"
-                    android:drawableTop="@drawable/ic_search_white_48dp"
-                    android:onClick="search_medicine"
-                    android:padding="15dp"
-                    android:text="Search"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="13dp" />
-
-                <Button
-                    android:id="@+id/my_presc"
-                    android:layout_marginLeft="5dp"
-                    android:padding="15dp"
-                    android:background="@color/darkbackground"
-                    android:textColor="@color/white"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:drawableTop="@drawable/ic_assignment_white_48dp"
-                    android:text="My Prescription"
-                    android:textSize="13dp"
-                    android:layout_weight="1"
-                    android:onClick="my_prescriptions"/>
-        </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/darkbackground"
-                android:layout_below="@+id/above"
-                android:layout_marginTop="13dp">
-
-                <Button
-                    android:id="@+id/nearby"
-                    android:layout_width="97dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@color/darkbackground"
-                    android:drawableTop="@drawable/ic_near_me_white_48dp"
-                    android:onClick="nearby_pharma"
-                    android:padding="15dp"
-                    android:text="Nearby Pharmacy"
-                    android:textColor="@color/white"
-                    android:textSize="13dp" />
-
-                <Button
-                    android:id="@+id/fragment"
-                    android:layout_width="91dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@color/darkbackground"
-                    android:drawableTop="@drawable/ic_format_list_bulleted_white_48dp"
-                    android:onClick="medlist"
-                    android:padding="15dp"
-                    android:text="Medicine List A-Z"
-                    android:textColor="@color/white"
-                    android:textSize="13dp" />
-
-                <Button
-                    android:id="@+id/reminder"
-                    android:layout_width="109dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@color/darkbackground"
-                    android:drawableTop="@drawable/ic_alarm_white_48dp"
-                    android:onClick="my_prescriptions"
-                    android:padding="15dp"
-                    android:text="Reminders (BETA)"
-                    android:textColor="@color/white"
-                    android:textSize="13dp" />
-            </LinearLayout>
-
+        android:textColor="#ffff"
+        android:textSize="15dp" />
 
 </RelativeLayout>

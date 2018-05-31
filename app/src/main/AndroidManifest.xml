@@ -27,7 +27,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".preschart" />
         <activity android:name=".MedicineList" />
-        <activity android:name=".Substitute_Page"></activity>
+        <activity android:name=".Substitute_Page" />
+        <activity android:name=".LoginWait"></activity>
     </application>
 
 </manifest>

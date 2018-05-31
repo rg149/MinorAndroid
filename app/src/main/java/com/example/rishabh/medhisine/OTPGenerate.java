@@ -34,8 +34,6 @@ public class OTPGenerate extends AsyncTask<String, Void, String>{
     //String apiKey = "tmta8AyNBPU-qjXVFWioZYnvq5nk0oWL5QtBquKgYX"; //rishabh.rg149
     String apiKey = "197929A4VYUZviW7jD5a81ce6a";
 
-
-
     //http://api.msg91.com/api/sendhttp.php?sender=MSGIND&route=4
     // &mobiles=919131593762&authkey=197929A4VYUZviW7jD5a81ce6a&country=91&message=%22Your%20OTP%20is%20%22
 
@@ -74,7 +72,7 @@ public class OTPGenerate extends AsyncTask<String, Void, String>{
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
             result = bufferedReader.readLine();
-            Log.e("result otp",result);
+            //Log.e("result otp",result);
         }
         catch (Exception e) {
 
